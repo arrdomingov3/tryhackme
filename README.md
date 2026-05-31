@@ -1,7 +1,7 @@
 # Repository of tryhackme CTF
 
 ![thm logo](./img/thm-logo.png)
-![thm gif](./img/thm.gif)
+![keyboard baby gif](./img/keyboard-baby.gif)
 
 ## Introduction
 This is the repository where I document the CTF challenges in the famous and addictive platform made for cybersecurity enthusiast which is `TryHackMe`. 
