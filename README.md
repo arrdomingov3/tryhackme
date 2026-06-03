@@ -14,11 +14,11 @@ CTF commonly stands for `Capture the Flag`, a popular cybersecurity competition 
 ## 🆆🅷🆈 🅲🆃🅵 🅸🆂 🅸🅼🅿🅾🆁🆃🅰🅽🆃?
 Capture the Flag (CTF) competitions are essential in cybersecurity because they provide hands-on, practical experience in spotting and exploiting system vulnerabilities. They act as a safe `digital playground` to test hacking techniques and problem-solving skills without real-world legal or financial consequences.
 
-## 🏆🏅 🅲🅾🅼🅿🅻🅴🆃🅴🅳 🅲🆃🅵 🆁🅾🅾🅼🆂 🏅🏆
+## 🏆🏅 🅲🅾🅼🅿🅻🅴🆃🅴🅳 C͓̽T͓̽F͓̽ ͓̽R͓̽o͓̽o͓̽m͓̽s͓̽ 🆆🆁🅸🆃🅴-🆄🅿 🏅🏆
 
 | Room Name | Description | Difficulty Level | Tools Used |
 | -------- | -------- | -------- | -------- |
-| [Simple CTF](https://tryhackme.com/room/easyctf) | Beginner level ctf  | Easy | Linux VM, nmap |
+| [Simple CTF](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/simple-ctf/README.md) | Beginner level ctf  | Easy | Linux VM, nmap |
 
 
 ## References
