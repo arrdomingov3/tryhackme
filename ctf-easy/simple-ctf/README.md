@@ -19,9 +19,11 @@ As the room decription stated, this is a beginner level CTF which is good for be
 
 - Join the room.
 - Deploy the VM.
-- For any exploitation, the first step is to find an entry point
+- For any exploitation, the first step is to find an entry point. Run the command `nmap`, which is a powerful tool that scans a target machine for open ports. 
 - > ❓ How many services are running under port 1000?  👉 2
+- 
 - > ❓ What is running on the higher port? 👉 ssh
+- 
 - > ❓What's the CVE you're using against the application? 👉 CVE-2019-9053
 - > ❓ To what kind of vulnerability is the application vulnerable? 👉 sqli
 - > ❓ What's the password? 👉 secret
