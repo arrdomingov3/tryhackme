@@ -18,7 +18,8 @@ Capture the Flag (CTF) competitions are essential in cybersecurity because they 
 
 | Room Name | Description | Difficulty Level | Tools Used |
 | -------- | -------- | -------- | -------- |
-| [Simple CTF](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/simple-ctf/README.md) | Beginner level ctf  | Easy | Linux VM, nmap |
+| [LazyAdmin](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/lazy-admin/README.md) `In-progress, room is locked due to stability of VM.` | This room is about web directory discovery and CMS exploitation. This is an easy Linux machine to practice. | Easy | nmap, gobuster, wordlist |
+<!-- | [Simple CTF](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/simple-ctf/README.md) | Beginner level ctf  | Easy | Linux VM, nmap | -->
 
 
 ## References
