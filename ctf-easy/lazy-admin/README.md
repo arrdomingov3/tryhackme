@@ -21,9 +21,13 @@
 | Room Description  | This room is about web directory discovery and CMS exploitation. This is an easy linux machine to practice.   |
 | Room Type         | Free Room. Anyone can deploy virtual machines in the room (without being subscribed)!           |
 | Room Difficulty   | Easy                  |
-| Tools Used        | nmap, gobuster           |
+| Tools Used        | nmap, gobuster, wordlist           |
 | Created by        | [MrSeth6797](https://tryhackme.com/p/MrSeth6797)  |
 
+
+`
+NOTE: Due to limited THM account capabilities, this pentesting is not accomplished in one-sitting. Attacker machine is only good for 60-minutes and will be reactivated after 24-hours. Hence, notice that the IP addresses of “Attacker machine” and “Target machine” is different on the screenshots.
+`
 
 # 2.0 Web Virtual Machine Setup
 
