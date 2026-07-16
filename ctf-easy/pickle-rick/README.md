@@ -57,14 +57,14 @@
 
 *Figure 3. Result of nmap scan.*
 
-- From the nmap scan, port 22 is used for SSH protocol. SSH usually isn’t too vulnerable unless we have the username and password. So, we can ignore port 22 for now.
-- Let us work on port 80, which is used for HTTP protocol where a website is being hosted. To begin the enumeration, open a browser and enter the IP address of the target machine in the URL. 
+- From the nmap scan, port 22 is used for SSH protocol. SSH usually isn’t too vulnerable unless there is a username and password. So, ignore port 22 for now.
+- Work on port 80, which is used for HTTP protocol where a website is being hosted. To begin the enumeration, open a browser and enter the IP address of the target machine in the URL. 
 
 ![Figure 4. Landing page of 10.144.135.80.](./img/4%20landing%20page.png)
 
 *Figure 4. Landing page of 10.144.135.80.*
 
-- First things first, check the source code of the webpage to check if there are any helpful clues. Right-click on the webpage and choose “Inspect”.
+- First things first, check the source code of the webpage if there are any helpful clues. Right-click on the webpage and choose “Inspect”.
 
 ![Figure 5. Checking the source code.](./img/5%20source%20code.png)
 
@@ -78,8 +78,8 @@
 
 ## 3.2 Deep-dive to hidden directories using GoBuster
 
-- Since we found the username, it’s time for more recon to find the password. 
-- We will use gobuster and try to locate any directories that may have been hidden from us. Gobuster works together with wordlist. We will use a slightly bigger wordlist which is “directory-list-2.3-medium.txt”.
+- Since the username was found, it’s time for more recon to find the password. 
+- Gobuster is used to locate any directories that may have been hidden. Gobuster works together with wordlist. Use a slightly bigger wordlist which is “directory-list-2.3-medium.txt”.
 - Open the terminal and type “gobuster dir -u http://\<target machine IP address\> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,sh,txt,cgi,html,css,js,py”.
 
 > where:
@@ -94,13 +94,13 @@
 
 *Figure 7. Result of GoBuster command.*
 
-- Earlier we found a username but at this moment we still do not have a password. Most websites will have a robots.txt file that will tell a browser what is and isn't allowed to index. Let’s see if there is one for this site. Go to the browser and type "http://10.146.158.40/robots.txt".
+- Earlier, a username was found and at this moment, password is still unknown. Most websites will have a robots.txt file that will tell a browser what is and isn't allowed to index. Check to see if there is one for this site. Go to the browser and type "http://10.146.158.40/robots.txt".
 
 ![Figure 8. Seems to be a useful information which is Wubbalubbadubdub.](./img/8%20password.png)
 
 *Figure 8. Seems to be a useful information which is Wubbalubbadubdub.*
 
-- Let’s try to find out if what we’ve found is the password. Remember running gobuster command, there is a result of “login.php”. So, open the browser and go to “http://10.146.158.40/login.php”. Use these credentials:
+- Find out if what was found is the password. Remember running gobuster command, there is a result of “login.php”. So, open the browser and go to “http://10.146.158.40/login.php”. Use these credentials:
 
 > Username: R1ckRul3s
 > 
@@ -110,7 +110,7 @@
 
 *Figure 9. Login page.*
 
-- Looks like what we’ve found on “robots.txt” is the password of the login page. By obtaining the username and password of the login page, we were able to get logged in and we were brought to the command portal.
+- Looks like what was found on “robots.txt” is the password of the login page. By obtaining the username and password of the login page, user gets logged in and brought to the command portal.
 
 ![Figure 10. Command portal.](./img/10%20portal.png)
 
@@ -118,14 +118,14 @@
 
 ## 3.3 Exploring the vulnerability of the webapp
 
-- Since this page is called “Command Panel”, let’s enter some command and see what actually happens.
+- Since this page is called “Command Panel”, enter some linux command and see what actually happens.
 - Enter “ls” in the command panel and click execute.
 
 ![Figure 11. Entering “ls” command in command panel.](./img/11%20ls.png)
 
 *Figure 11. Entering “ls” command in command panel.*
 
-- We can see that some results are being returned. It would seem that we have a file where we can find our first ingredient.
+- Seems some results are being returned. It would seem that there is a file where first ingredient can be found.
 
 ![Figure 12. Result of “ls” command.](./img/12%20result%20ls.png)
 
@@ -137,7 +137,7 @@
 
 *Figure 13. Opening one txt file.*
 
-- However, the result is not what we are expecting.
+- However, the result is not what is expected.
 
 ![Figure 14. Result of opening the txt file.](./img/14%20result%20txt%20file.png)
 
@@ -145,7 +145,7 @@
 
 - So, as a solution, go to browser and enter “http://\<ipAddress\>/Sup3rS3cretPickl3Ingred.txt”. 
 
-> Note: We can also use an alternative command for “cat” which is “less”. This will give the same result. In the Command Panel, enter the command “less Sup3rS3cretPickl3Ingred.txt” to get the first ingredient/flag.
+> Note: It is possible to use an alternative command for “cat” which is “less”. This will give the same result. In the Command Panel, enter the command “less Sup3rS3cretPickl3Ingred.txt” to get the first ingredient/flag.
 
 ![Figure 15. First ingredient.](./img/15%20first%20ingredient.png)
 
@@ -154,31 +154,31 @@
 
 > ❓(Question 1/3) What is the first ingredient that Rick needs? 👉 mr. meeseek hair
 
-- We are now one ingredient. It is time to find the other two, but how can we find it? Remember the “ls” command we run in the Command Panel, there is a file called “clue.txt”. Let’s open this and see if there is anything useful. Open the browser and type “http://\<ipAddress\>/clue.txt”.
+- One ingredient down. It is time to find the other two, but how to find it? Remember the “ls” command in the Command Panel, there is a file called “clue.txt”. Open this and see if there is anything useful. Open the browser and type “http://\<ipAddress\>/clue.txt”.
 
 ![Figure 16. Opening clue.txt.](./img/16%20clue.png)
 
 *Figure 16. Opening clue.txt.*
 
-- Seems that the other ingredients are also in the file system, however we don’t know what it’s called. So, go to the Command Panel and execute “ls /home”. This will list out everything in our home directory.
+- Seems that the other ingredients are also in the file system, however the file name is unknown. So, go to the Command Panel and execute “ls /home”. This will list out everything in home directory.
 
 ![Figure 17. Result of running ls /home command.](./img/17%20ls%20home.png)
 
 *Figure 17. Result of running ls /home command.*
 
-- Let’s keep digging and execute “ls /home/rick”. Within the rick directory, we have a file called second ingredients.
+- Keep digging and execute “ls /home/rick”. Within the rick directory, there is a file called second ingredients.
 
 ![Figure 18. Second ingredients.](./img/18%20second%20ingredient.png)
 
 *Figure 18. Second ingredients.*
 
-- Since “cat” command is disabled in the Command Panel, Iet’s use the alternative command which is “less”. Execute “less '/home/rick/second ingredients'” command in the Command Panel.
+- Since “cat” command is disabled in the Command Panel, use the alternative command which is “less”. Execute “less '/home/rick/second ingredients'” command in the Command Panel.
 
 ![Figure 19. Using less command.](./img/19%20less%20com.png)
 
 *Figure 19. Using less command.*
 
-- Running “less” command worked. We found the second ingredient.
+- Running “less” command worked. There is the second ingredient.
 
 ![Figure 20. Second ingredient is "1 jerry tear".](./img/20%20found%20second%20ing.png)
 
@@ -186,19 +186,19 @@
 
 > ❓(Question 2/3) What is the second ingredient in Rick’s potion? 👉 1 jerry tear
 
-- We are now off to the third ingredients. Making an educated guess, let’s look in the root directory to see if the third ingredient was there. In the Command Panel, execute “sudo ls /root”.
+- Now off to the third ingredients. Look in the root directory to see if the third ingredient is there. In the Command Panel, execute “sudo ls /root”.
 
 ![Figure 21. Command to see root directory.](./img/21%20root%20dir.png)
 
 *Figure 21. Command to see root directory.*
 
-- Running “sudo ls /root” command would potentially lead us to the third ingredients.
+- Running “sudo ls /root” command would potentially lead to the third ingredients.
 
 ![Figure 22. Useful files in the root directory.](./img/22%20useful%20files.png)
 
 *Figure 22. Useful files in the root directory.*
 
-- •	Now that we have found the possible location of the third ingredients, we are going to use “less” command, but remember to use “sudo” command because we are in the root directory. So, execute the command “sudo less /root/3rd.txt".
+- Now that the possible location of the third ingredient was found, use “less” command but remember to use “sudo” command because the file is in the root directory. So, execute the command “sudo less /root/3rd.txt".
 
 ![Figure 23. Checking the third ingredients.](./img/23%20check%20third.png)
 
