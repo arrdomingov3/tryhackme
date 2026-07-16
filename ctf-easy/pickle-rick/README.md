@@ -8,6 +8,7 @@
   - [3.1 Scanning and Enumeration](#31-scanning-and-enumeration)
   - [3.2 Deep-dive to hidden directories using GoBuster](#32-deep-dive-to-hidden-directories-using-gobuster)
   - [3.3 Exploring the vulnerability of the webapp](#33-exploring-the-vulnerability-of-the-webapp)
+- [4.0 Summary](#40-summary)
 
 <!-- /TOC -->
 
@@ -210,3 +211,13 @@
 *Figure 24. Third ingredients is "fleeb juice".*
 
 > ❓ (Question 3/3) What is the last and final ingredient? 👉 fleeb juice
+
+
+# 4.0 Summary
+
+In this room, I helped Rick to get the three ingredients needed for him to turn from pickle to human. I first scanned the target machine for open ports using nmap. Next, I did enumeration by extracting the username and password of the login page. Once I have an access to the system, I was able to further explore the vulnerability of the web application. <br> <br>
+ Below are the answers found:
+
+ > - ❓(Question 1/3) What is the first ingredient that Rick needs? 👉 `mr. meeseek hair`
+ > - ❓(Question 2/3) What is the second ingredient in Rick’s potion? 👉 `1 jerry tear`
+ > - ❓ (Question 3/3) What is the last and final ingredient? 👉 `fleeb juice`
