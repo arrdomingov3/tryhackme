@@ -94,6 +94,14 @@
 
 *Figure 7. Result of GoBuster command.*
 
+> `Status 403` is forbidden code, which indicates that the server successfully understands the request but completely refuses to authorize it. 
+>
+> `Status 302` is a redirection status code indicating that the requested resource has been temporarily moved to a different URL.
+> 
+> `Status 301` is an HTTP response that means a requested web page or file has been permanently moved to a new URL. 
+> 
+> `Status 200` is OK status code, which means that a client's request was successfully received, understood, and processed by the server.
+
 - Earlier, a username was found and at this moment, password is still unknown. Most websites will have a robots.txt file that will tell a browser what is and isn't allowed to index. Check to see if there is one for this site. Go to the browser and type "http://10.146.158.40/robots.txt".
 
 ![Figure 8. Seems to be a useful information which is Wubbalubbadubdub.](./img/8%20password.png)
