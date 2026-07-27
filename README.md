@@ -20,6 +20,7 @@ Capture the Flag (CTF) competitions are essential in cybersecurity because they 
 | -------- | -------- | -------- | -------- |
 | [LazyAdmin](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/lazy-admin/README.md) `In-progress, room is locked due to stability of VM.` | This room is about web directory discovery and CMS exploitation. This is an easy Linux machine to practice. | Easy | nmap, gobuster, wordlist |
 | [Pickle Rick](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/pickle-rick/README.md) | A Rick and Morty CTF. Help turn Rick back into a human! | Easy | nmap, gobuster, wordlist |
+| [Basic Pentesting](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/basic-pentesting/README.md) | This room allows to practice web app hacking, master network scanning, SSH brute forcing, hash cracking, service enumeration, and Linux enumeration. | Easy | nmap, gobuster, enum4linux, hydra, wordlist, John the Ripper |
 <!-- | [Simple CTF](https://github.com/arrdomingov3/tryhackme/blob/main/ctf-easy/simple-ctf/README.md) | Beginner level ctf  | Easy | Linux VM, nmap | -->
 
 
